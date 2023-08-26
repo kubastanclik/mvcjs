@@ -9,7 +9,7 @@ class RouteController extends Controller {
         super();
     }
 
-    index(Request, Response) {
+    404(Request, Response) {
         
         Response.render('layout/errors/404');
     }
