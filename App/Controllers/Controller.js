@@ -4,7 +4,6 @@ const moment = require('moment');
 class Controller {
     
     moment;
-    static __NAME__ = 'ASD';
 
     constructor() {
         this.moment = moment();
