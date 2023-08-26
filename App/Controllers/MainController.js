@@ -3,8 +3,10 @@ const Controller = require('./Controller');
 
 class MainController extends Controller {
 
-    index(Request, Response) {
-        Response.render('index', params);
+    index(Request, Response, Dependencies) {
+        Response.render('index', {
+            time: Dependencies.moment().format('YYYY-MM-DD')
+        });
     }
 
     contact(Request, Response) {
