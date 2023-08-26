@@ -6,11 +6,19 @@ const { __APP__, __PORT__, __VIEWS__ } = require('../frame.config.js');
 
 const twig = require('twig'); // call twig
 
+const bodyParser = require('body-parser'); // call body-parser
+
 __APP__.set('view engine', 'twig'); // set twig
 
 __APP__.set('views', __VIEWS__); // set views directory
 
 __APP__.get('/favicon.ico', (req, res) => res.status(204));
+
+__APP__.use( bodyParser.json() );       // to support JSON-encoded bodies
+
+__APP__.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 
 class Frame {
 
@@ -44,6 +52,18 @@ class Frame {
         }
 
         return this;
+    }
+
+    group(path, callbacks) {
+        callbacks.forEach(elem => {
+            try {
+                let callback = elem[2];
+                this[elem[0]](path + elem[1], callback);
+            } catch (e) {
+                throw new Error(e);
+            }
+            
+        })
     }
 
     middlewares(middleware) {

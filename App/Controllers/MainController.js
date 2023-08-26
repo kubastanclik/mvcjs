@@ -1,20 +1,24 @@
 /* imports */
-const { __APP_NAME__ } = require('../../frame.config');
 const Controller = require('./Controller');
 
 class MainController extends Controller {
-    
-    title = 'Main Site';
-
-    constructor() {
-        super();
-    }
 
     index(Request, Response) {
-        let params = {
-            appName: __APP_NAME__
-        };
         Response.render('index', params);
+    }
+
+    contact(Request, Response) {
+        console.log();
+        Response.render('contact', {
+            data: Request.params
+        });
+    }
+
+    handlePost(Request, Response) {
+        Response.render('data', {
+            data: Request.body,
+            args: Request.params
+        });
     }
 }
 

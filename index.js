@@ -12,6 +12,11 @@ Frame.middlewares(Middlewares);
 
 Frame.get('/', [MainController, 'index']);
 
+Frame.group('/a', [
+    ['get', '/contact/:id/', [MainController, 'contact']],
+    ['post', '/post', [MainController, 'handlePost']]
+])
+
 Frame.get('*', [RouteController, '404'])
 
 Frame.run();
