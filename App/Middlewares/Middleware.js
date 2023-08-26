@@ -1,6 +1,9 @@
 class Middleware {
 
+    __CONFIG__;
+
     constructor() {
+        this.__CONFIG__ = require('../../frame.config');
         this.handle();
     }
 

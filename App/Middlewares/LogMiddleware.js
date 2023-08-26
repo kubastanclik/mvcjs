@@ -3,7 +3,9 @@ const Middleware = require('./Middleware');
 class LogMiddleware extends Middleware {
 
     handle(Request, Response) {
-        console.log(Request?.query);
+        const Log = require('../../Core/Bootstrap/Log.js');
+        
+        Log.addToAccessLog(Request, Response)
     }
 }
 

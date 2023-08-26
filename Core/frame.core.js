@@ -10,6 +10,8 @@ __APP__.set('view engine', 'twig'); // set twig
 
 __APP__.set('views', __VIEWS__); // set views directory
 
+__APP__.get('/favicon.ico', (req, res) => res.status(204));
+
 class Frame {
 
     __APP__;

@@ -5,8 +5,9 @@ const __APP__ = new __EXPRESS__();
 /* Config */
 const __APP_NAME__ = 'My Frame App';
 const __ENVIROMENT__ = 'dev' // 'prod' | 'dev'
-const __PORT__ = 3001;
+const __PORT__ = 3009;
 const __VIEWS__ = './Views';
+const __LOGDIR__ = 'Logs';
 
 /* Supplement config */
 
@@ -22,5 +23,6 @@ module.exports = {
     __APP_NAME__,
     __ENVIROMENT__,
     __SUPPLEMENT__,
-    __VIEWS__
+    __VIEWS__,
+    __LOGDIR__
 }
