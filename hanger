@@ -6,6 +6,7 @@
 class Hanger {
     args;
     fs;
+    process;
 
     /* colors */
     Reset = "\x1b[0m"
@@ -40,6 +41,7 @@ class Hanger {
     constructor(args) {
         this.args = args;
         this.fs = require('fs');
+        this.process = require("child_process");
     }
 
     getLogo() {
@@ -164,8 +166,8 @@ module.exports = new ${_name}();
         console.clear();
         let _name = name;
         
-        if (name.toLowerCase().indexOf('controller') === -1) {
-            _name = name + 'Controller';
+        if (name.toLowerCase().indexOf('middleware') === -1) {
+            _name = name + 'Middleware';
         }
 
         let path = `/${__dirname}/App/Middlewares/${_name}.js`;
@@ -232,6 +234,10 @@ module.exports = new ${_name}();
             case '-c':
             case '--create':
                 this.create()
+                break;
+            case '-s':
+            case '--serve':
+                this.process.exec(`npm run dev`);
                 break;
             case '-h':
             case '--help':

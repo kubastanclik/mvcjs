@@ -5,8 +5,8 @@ const __APP__ = new __EXPRESS__();
 /* Config */
 const __APP_NAME__ = 'My Frame App';
 const __ENVIROMENT__ = 'dev' // 'prod' | 'dev'
-const __PORT__ = 3002;
-const __VIEWS__ = './views';
+const __PORT__ = 3001;
+const __VIEWS__ = './Views';
 
 /* Supplement config */
 
