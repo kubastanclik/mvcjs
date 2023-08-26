@@ -47,14 +47,16 @@ class Frame {
     use(middleware) {
         if (Array.isArray(middleware)) {
             middleware.forEach(middleware => {
-                if (Array.isArray(middleware)) {
-                    this.__APP__.use(middleware[0][middleware[1]]());
-                } else {
-                    this.__APP__.use(middleware);
-                }
+                this.__APP__.use((req, res, next) => {
+                    middleware.handle(req, res);
+                    next();
+                });
             })
         } else {
-            this.__APP__.use(middleware);
+            this.__APP__.use((req, res, next) => {
+                middleware.handle
+                next();
+            });
         }
         
         return this;
