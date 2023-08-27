@@ -1,4 +1,4 @@
-/* Dependencies */
+/* App core */
 const __EXPRESS__ = require('express');
 const __APP__ = new __EXPRESS__();
 
