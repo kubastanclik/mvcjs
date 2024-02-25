@@ -1,11 +1,13 @@
 /* imports */
 const Controller = require('./Controller');
+const Doc = require('../../Core/Doc/doc.core');
 
 class MainController extends Controller {
 
-    index(Request, Response, Dependencies) {
+    index(Request, Response) {
+
         Response.render('index', {
-            time: Dependencies.moment().format('YYYY-MM-DD')
+            time: Doc.list()
         });
     }
 
