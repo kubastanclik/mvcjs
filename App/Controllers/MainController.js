@@ -6,8 +6,10 @@ class MainController extends Controller {
 
     index(Request, Response) {
 
+        Doc.disc('files');
+
         Response.render('index', {
-            time: Doc.list()
+            time: ''
         });
     }
 
