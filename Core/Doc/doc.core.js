@@ -1,17 +1,20 @@
 const fs = require('fs');
+const DocHelper = require('../Doc/Doc.helper');
 class Doc {
 
     destinationPath;
     currentCatalog;
     bufferFile;
     files;
+    helper;
 
     constructor() {
-
+        this.helper = DocHelper;
     }
     disc(catalogName) {
         this.destinationPath = '/Users/jakub/JS/mvcjs/storage/';
-        this.currentCatalog = this.destinationPath + catalogName;
+        console.log( this.helper.checkThatTheNameEndsSlash(this.destinationPath));
+        this.currentCatalog = this.helper.checkThatTheNameEndsSlash(this.destinationPath) + this.helper.checkThatTheNameEndsSlash(catalogName);
 
         return this;
     }
@@ -39,8 +42,26 @@ class Doc {
         return convertedFile;
     }
 
+    save(data, fileName) {
+            if (!this.helper.validateFilenameSafety(fileName)) {
+                console.error('File not safe!');
+                return false;
+            }
+
+            fs.writeFile(this.currentCatalog + fileName, data, (err) => {
+                if (err) {
+                    return err;
+                } else {
+                    return true;
+                }
+            });
+    }
+
     list(fullPath = false) {
         fs.readdir(this.currentCatalog, (err, files) => {
+            if (err) {
+                return err;
+            }
             this.files = files;
         });
 
