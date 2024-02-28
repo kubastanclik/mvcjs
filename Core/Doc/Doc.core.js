@@ -22,6 +22,7 @@ class Doc {
     get(filename) {
         this.bufferFile = fs.readFileSync(this.currentCatalog + '/' + filename);
 
+        // return file as object type File
         return this;
     }
 

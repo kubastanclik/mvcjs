@@ -1,6 +1,6 @@
 /* imports */
 const Controller = require('./Controller');
-const Doc = require('../../Core/Doc/doc.core');
+const Doc = require('../../Core/Doc/Doc.core');
 const {request} = require("express");
 
 class MainController extends Controller {
